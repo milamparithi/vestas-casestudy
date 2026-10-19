@@ -9,7 +9,6 @@ description = "Extract structured principal risks from annual report PDFs"
 requires-python = ">=3.10"
 dependencies = [
     "pypdf>=5.0",
-    "fonttools>=4.50",
     "pdfplumber>=0.11",
     "pydantic>=2.7",
     "litellm>=1.40",

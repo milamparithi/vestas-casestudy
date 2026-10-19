@@ -9,12 +9,12 @@ This app loads the PDF, extracts specific sections and the corresponding pages a
 
 The LLM never sees the whole report. Only selected pages with risk details are sent. This prevents the LLM from hallucination. Each retrieved risk is attributed to a correct page and section.
 
-A golden data set is available as a baseline with some true positives and fase positives. This can be run whenever a model,prompt or some other part of the pipeline changes, to catch any regressions.
+A golden data set is available as a baseline with some true positives and false positives. This can be run whenever a model,prompt or some other part of the pipeline changes, to catch any regressions.
 
 ## Architecture
 
 ```
-PDF ──▶ ingest ──▶ [Page] ──▶ retrieve ──▶ [FetchedSection] ──▶ extract ──▶ [Risk] ──▶ eval/runs/<run-id>.predictions.json
+PDF ──▶ ingest ──▶ [Page] ──▶ retrieve ──▶ [FetchedSection] ──▶ extract ──▶ [Risk] ──▶ output/runs/<run-id>.predictions.json
          (pypdf/          (configured page     (one LLM call per page,
           pdfplumber)      ranges)              JSON mode via litellm)
 ```
@@ -43,22 +43,20 @@ The LLM is asked to return `{"risks": [{"title", "description", "category",
 
 ## Run artifacts
 
-Each run writes its output to `eval/runs/<run-id>.predictions.json` (`<run-id>` =
+Each run writes its output to `output/runs/<run-id>.predictions.json` (`<run-id>` =
 UTC `%Y%m%d-%H%M%S-%f`, computed once per invocation; override the directory with
-`--runs-dir`). 
-
-With `--eval`, a Markdown report is written as
-`eval/runs/<run-id>.report.md`, so a report and the exact predictions it scored
+`--runs-dir`). This is written on every run, so the pipeline output survives even
+when no eval is run. With `--eval`, that archived JSON is read back and a
+Markdown report is written under the eval dir as `eval/runs/<run-id>.report.md`
+(override with `--eval-dir`), so a report and the exact predictions it scored
 share one run id; the same section is appended to the shared `eval/REPORT.md` log
-(delete it to reset). 
-
-The diagnostic modes archive to `<run-id>.pages.json` /
-`<run-id>.sections.json`. `eval/runs/` is gitignored.
+(delete it to reset). The diagnostic modes archive to `<run-id>.pages.json` /
+`<run-id>.sections.json`. `output/` and `eval/runs/` are gitignored.
 
 ## Key decisions/trade-offs
 
 **Report specific pipeline logic** Section details are hardcoded for now as per the requirement. Ideally
-the pipeline should identify the relevant sections automatically and retreive those section details. More generic logic
+the pipeline should identify the relevant sections automatically and retrieve those section details. More generic logic
 needed to parse wide variety of document formats and document structure. For example, sections might have different hierarchy. Tables
 might have different format etc. Except the hard coded sections the rest of the pipeline is designed to handle any valid pdf report.
 
@@ -82,7 +80,7 @@ uniformity.
 `LLM_MODEL`. No provider SDK is pinned in the code. Requests use
 `response_format={"type": "json_object"}` and `temperature=0`.
 
-**Report specific golden set and evaluation** The golden set is currently based only on the Vestas report. Eval assumes that the generated output is for the Vestas Report. When we make the pipeline generic, eval logic needs to be updated as well.
+**Report specific golden set and evaluation** The golden set is currently based only on the Vestas report. Eval assumes that the generated output is for the Vestas Report. When we make the pipeline generic, eval logic needs to be updated as well. Also true positives and false positives for the golden dataset are identified by the LLM. In a production system, the golden dataset should be curated by a subject matter expert.
 
 ## Robustness
 

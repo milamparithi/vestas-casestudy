@@ -10,8 +10,11 @@
     "expected_mitigation_keywords": "key terms a correct mitigation must contain (casefold substring, any one suffices); null when the report states no mitigation, so any mitigation is a hallucination.",
     "covered_locations": [
       "Risk management p.50-51",
-      "Material impacts, risks, and opportunities p.74",
-      "Climate change p.86"
+      "Material impacts, risks, and opportunities p.71",
+      "Material impacts, risks, and opportunities p.73-74",
+      "Climate change p.85-87",
+      "Climate change p.92",
+      "Cyber security p.118"
     ]
   },
   "golden": [
@@ -20,10 +23,20 @@
       "title": "Geopolitics and regulatory framework",
       "description": "In 2025, Vestas continued to navigate significant challenges arising from shifting geopolitical tensions across the world. Conflicts in Ukraine and the Middle East continued to disrupt regional stability, affecting global supply chains and business operations. Trade tensions between major economies have intensified, leading to tariffs, sanctions, export controls, and targeted restrictions on critical materials which complicate global operations. Governments in the EU, China, and the USA introduced assertive industrial policies aimed at securing domestic manufacturing and energy independence. These shifts are reshaping the regulatory landscape, altering market incentives, and intensifying competition in the clean-tech sector.",
       "section": "Risk management",
-      "pages": [51],
+      "pages": [
+        51
+      ],
       "expected": true,
-      "expected_categories": ["regulatory", "geopolitical"],
-      "expected_mitigation_keywords": ["footprint", "advocacy", "hedg", "indexation"],
+      "expected_categories": [
+        "regulatory",
+        "geopolitical"
+      ],
+      "expected_mitigation_keywords": [
+        "footprint",
+        "advocacy",
+        "hedg",
+        "indexation"
+      ],
       "reason": "One of the three Main risks columns (p.51); 'How we manage it' states monitoring, a regionalised footprint, advocacy, and indexation/hedging."
     },
     {
@@ -31,10 +44,19 @@
       "title": "Project execution",
       "description": "Project execution at Vestas involves delivering complex onshore and offshore projects within specified parameters relating to quality, cost, and timeline. As the scale and complexity of offshore projects grow, so does the need for precise internal coordination. Execution is affected by delays in production capacity ramp-up, quality control issues during scaling, and supply chain disruptions. The lack of industry-wide standardisation and insufficient logistical infrastructure further complicate timely delivery.",
       "section": "Risk management",
-      "pages": [51],
+      "pages": [
+        51
+      ],
       "expected": true,
-      "expected_categories": ["operational"],
-      "expected_mitigation_keywords": ["governance", "planning", "capacity", "supplier"],
+      "expected_categories": [
+        "operational"
+      ],
+      "expected_mitigation_keywords": [
+        "governance",
+        "planning",
+        "capacity",
+        "supplier"
+      ],
       "reason": "One of the three Main risks columns (p.51); mitigation is project governance, planning, scalable capacity, and supplier coordination."
     },
     {
@@ -42,10 +64,18 @@
       "title": "Cyber attacks",
       "description": "Vestas' digital and other critical assets are exposed to cyber attacks. A cyber attack may have dual implications for both Vestas as a company and for the societies that our energy solutions serve. Electricity producers rely on Vestas' energy solutions for reliable and secure sustainable energy production, making these solutions critical infrastructure. Cyber-threat actors constantly evolve their methods and techniques to attack Vestas' energy solutions, for the purpose of extortion or to destabilise energy generation.",
       "section": "Risk management",
-      "pages": [51],
+      "pages": [
+        51
+      ],
       "expected": true,
-      "expected_categories": ["cyber"],
-      "expected_mitigation_keywords": ["cyber security services", "standards", "cyber risks"],
+      "expected_categories": [
+        "cyber"
+      ],
+      "expected_mitigation_keywords": [
+        "cyber security services",
+        "standards",
+        "cyber risks"
+      ],
       "reason": "One of the three Main risks columns (p.51); mitigation is continuously addressing cyber risks and developing cyber security services."
     },
     {
@@ -53,9 +83,13 @@
       "title": "Insufficient market conditions",
       "description": "Inadequate grid expansion, ineffective auction design and permit delays could increase costs, hinder investments, and reduce the viability of wind deployment.",
       "section": "Material impacts, risks, and opportunities",
-      "pages": [74],
+      "pages": [
+        74
+      ],
       "expected": true,
-      "expected_categories": ["market"],
+      "expected_categories": [
+        "market"
+      ],
       "expected_mitigation_keywords": null,
       "reason": "Right-column financial risk on p.74 (Political engagement row). The IRO table states no mitigation, so null is correct."
     },
@@ -64,9 +98,13 @@
       "title": "Cyber security risks",
       "description": "Cyber attacks might disrupt business operations, expose intellectual property, or cause legal liability.",
       "section": "Material impacts, risks, and opportunities",
-      "pages": [74],
+      "pages": [
+        74
+      ],
       "expected": true,
-      "expected_categories": ["cyber"],
+      "expected_categories": [
+        "cyber"
+      ],
       "expected_mitigation_keywords": null,
       "reason": "Right-column financial risk on p.74 (Cyber security row). No mitigation is stated in the table."
     },
@@ -75,9 +113,15 @@
       "title": "Risk of corruption and bribery",
       "description": "Vestas' global presence presents an increased risk of exposure to corruption and bribery.",
       "section": "Material impacts, risks, and opportunities",
-      "pages": [74],
+      "pages": [
+        74
+      ],
       "expected": true,
-      "expected_categories": ["regulatory", "corruption", "bribery"],
+      "expected_categories": [
+        "regulatory",
+        "corruption",
+        "bribery"
+      ],
       "expected_mitigation_keywords": null,
       "reason": "Right-column financial risk on p.74 (Corruption and bribery row; impacts scored immaterial). No mitigation stated."
     },
@@ -86,10 +130,18 @@
       "title": "Climate transition investment and technology maturity risk",
       "description": "Aligning our own operations with ambitious climate targets and mitigating financial impacts from carbon taxes and tariffs requires significant investments, and some necessary solutions are still immature from a technical or commercial perspective.",
       "section": "Climate change",
-      "pages": [86],
+      "pages": [
+        86
+      ],
       "expected": true,
-      "expected_categories": ["climate"],
-      "expected_mitigation_keywords": ["investments", "mitigating actions", "strategic priorities"],
+      "expected_categories": [
+        "climate"
+      ],
+      "expected_mitigation_keywords": [
+        "investments",
+        "mitigating actions",
+        "strategic priorities"
+      ],
       "reason": "Resilience analysis (p.86): significant, immature investments stated as a risk; mitigation is the strategic priorities and investments in place."
     },
     {
@@ -97,10 +149,19 @@
       "title": "Dependence on political action",
       "description": "Our business outlook also depends on political action; without supportive policies, our industry may struggle to meet global climate targets.",
       "section": "Climate change",
-      "pages": [86],
+      "pages": [
+        86
+      ],
       "expected": true,
-      "expected_categories": ["regulatory", "political"],
-      "expected_mitigation_keywords": ["investments", "mitigating actions", "strategic priorities"],
+      "expected_categories": [
+        "regulatory",
+        "political"
+      ],
+      "expected_mitigation_keywords": [
+        "investments",
+        "mitigating actions",
+        "strategic priorities"
+      ],
       "reason": "Resilience analysis (p.86): business outlook depends on political action; shares the same stated mitigation sentence as g07."
     },
     {
@@ -108,7 +169,9 @@
       "title": "Operational, Commercial, Macroeconomic, and Regulatory Challenges",
       "description": "Operating across diverse markets and a rapidly evolving industry landscape, Vestas is exposed to a wide array of risks that reflect the complexity and global nature of our business. These risks include operational, commercial, macroeconomic, and regulatory challenges.",
       "section": "Risk management",
-      "pages": [50],
+      "pages": [
+        50
+      ],
       "expected": false,
       "reason": "Trap: ERM overview sentence that lists risk categories; not a discrete risk."
     },
@@ -117,7 +180,9 @@
       "title": "Climate Change and Responsible Business Conduct Risks",
       "description": "Vestas' most significant risks, including material sustainability topics such as climate change mitigation and responsible business conduct, are reviewed every six months by the Executive Management Team, the Board of Directors, and the Audit Committee.",
       "section": "Risk management",
-      "pages": [50],
+      "pages": [
+        50
+      ],
       "expected": false,
       "reason": "Trap: ERM review-cadence narrative (how risk is managed), not a risk."
     },
@@ -126,7 +191,9 @@
       "title": "Land-use restrictions during construction",
       "description": "Land-use restrictions during wind farm construction leading to a temporary negative impact in the form of physical and economic displacement (e.g income losses) of local communities.",
       "section": "Material impacts, risks, and opportunities",
-      "pages": [74],
+      "pages": [
+        74
+      ],
       "expected": false,
       "reason": "Trap: left-column impact; the paired risks/opportunities are scored immaterial N/A."
     },
@@ -135,7 +202,9 @@
       "title": "Impacts on indigenous peoples' rights",
       "description": "Failure to respect indigenous peoples right to own, control and use their lands in development, construction and operation of wind farms is a negative impact.",
       "section": "Material impacts, risks, and opportunities",
-      "pages": [74],
+      "pages": [
+        74
+      ],
       "expected": false,
       "reason": "Trap: left-column impact with no paired financial risk."
     },
@@ -144,7 +213,9 @@
       "title": "Uncertainties in Climate Scenario Analysis",
       "description": "We recognise that analysis of the future is based on significant uncertainties and assumptions due to e.g., market developments and evolving climate patterns.",
       "section": "Climate change",
-      "pages": [86],
+      "pages": [
+        86
+      ],
       "expected": false,
       "reason": "Trap: caveat about the analysis method, not a risk to the business."
     },
@@ -153,9 +224,154 @@
       "title": "Physical climate risks (water stress and extreme rainfall)",
       "description": "While physical risks like water stress and extreme rainfall may impact operations across our value chain, the impact is not expected to materially delay or damage assets and therefore is not financially material.",
       "section": "Climate change",
-      "pages": [86],
+      "pages": [
+        86
+      ],
       "expected": false,
       "reason": "Trap: explicitly stated as not financially material."
+    },
+    {
+      "id": "g09",
+      "title": "Carbon taxes and tariffs",
+      "description": "High carbon taxes and tariffs increase the price of GHG intense materials such as steel, increasing the overall cost to produce wind turbines.",
+      "section": "Material impacts, risks, and opportunities",
+      "pages": [
+        71
+      ],
+      "expected": true,
+      "expected_categories": [
+        "regulatory",
+        "market"
+      ],
+      "expected_mitigation_keywords": null,
+      "reason": "Right-column financial risk on the p.71 IRO summary table (Climate change mitigation row). No mitigation is stated in the table."
+    },
+    {
+      "id": "g10",
+      "title": "Cost implication of injuries in own workforce",
+      "description": "Potential injuries leading to delays, lost work hours and compensation costs pose a financial risk.",
+      "section": "Material impacts, risks, and opportunities",
+      "pages": [
+        73
+      ],
+      "expected": true,
+      "expected_categories": [
+        "health and safety",
+        "operational"
+      ],
+      "expected_mitigation_keywords": null,
+      "reason": "Right-column financial risk on the p.73 IRO summary table (Working conditions of own workforce row). No mitigation is stated in the table."
+    },
+    {
+      "id": "g11",
+      "title": "Cost implications of injuries to contractors and sub-contractors",
+      "description": "Potential injuries to value chain workers leading to delays, lost work hours and compensation costs pose a risk.",
+      "section": "Material impacts, risks, and opportunities",
+      "pages": [
+        73
+      ],
+      "expected": true,
+      "expected_categories": [
+        "health and safety",
+        "operational"
+      ],
+      "expected_mitigation_keywords": null,
+      "reason": "Right-column financial risk on the p.73 IRO summary table (Working conditions in the value chain row). No mitigation stated."
+    },
+    {
+      "id": "g12",
+      "title": "Fines related to forced or child labour",
+      "description": "Vestas' global network of suppliers combined with the risk of fines related to child and forced labour constitute a potential risk.",
+      "section": "Material impacts, risks, and opportunities",
+      "pages": [
+        73
+      ],
+      "expected": true,
+      "expected_categories": [
+        "social",
+        "human rights",
+        "regulatory"
+      ],
+      "expected_mitigation_keywords": null,
+      "reason": "Right-column financial risk on the p.73 IRO summary table (Other work-related rights of workers in the value chain row). No mitigation stated."
+    },
+    {
+      "id": "g13",
+      "title": "Carbon taxes and tariffs",
+      "description": "Political and market transition risks, such as carbon taxes, can financially impact Vestas. High carbon taxes and tariffs will increase the cost of GHG-intensive materials like steel, raising the overall cost of wind turbines. If we cannot distribute these costs along our value chain or transition to low-carbon alternatives fast enough, our cost base may be impacted.",
+      "section": "Climate change",
+      "pages": [
+        85
+      ],
+      "expected": true,
+      "expected_categories": [
+        "regulatory",
+        "market"
+      ],
+      "expected_mitigation_keywords": null,
+      "reason": "SBM-3 financial transition risk on p.85 (Carbon taxes and tariffs). No mitigation is stated in this disclosure."
+    },
+    {
+      "id": "g14",
+      "title": "Cyber security risks",
+      "description": "Our digitally connected and geographically dispersed wind turbines are essential to deliver sustainable energy but also represent potential targets for cyber-attacks. Such incidents could disrupt energy production and cause outages. For Vestas, a successful cyber-attack could interrupt operations, erode partner trust, and cause significant financial losses.",
+      "section": "Cyber security",
+      "pages": [
+        118
+      ],
+      "expected": true,
+      "expected_categories": [
+        "cyber"
+      ],
+      "expected_mitigation_keywords": [
+        "open-source",
+        "cyber risk quantification",
+        "investment"
+      ],
+      "reason": "SBM-3 entity-specific risk on p.118 explicitly labelled 'Type of impact: Risk' (Cyber security risks). Mitigation is strengthening industry resilience and investing in cyber security."
+    },
+    {
+      "id": "g15",
+      "title": "Cost of conventional steel from carbon taxes and tariffs",
+      "description": "Decarbonising steel production is crucial to meet our reduction targets. Furthermore, upcoming carbon taxes and tariffs will increase costs for imported conventional steel and thus increase the need for emissions-reduced steel.",
+      "section": "Climate change",
+      "pages": [
+        87
+      ],
+      "expected": true,
+      "expected_categories": [
+        "regulatory",
+        "market"
+      ],
+      "expected_mitigation_keywords": [
+        "low-emission steel",
+        "ArcelorMittal",
+        "low-emission alternatives",
+        "suppliers"
+      ],
+      "reason": "Decarbonisation actions section (p.87 'Commercialise low-emission steel'): carbon taxes and tariffs raise the cost of imported conventional steel; mitigation is the ArcelorMittal low-emission steel partnership."
+    },
+    {
+      "id": "n07",
+      "title": "Confidentiality of sales forecasts and Scope 3 disclosure",
+      "description": "We will not disclose our absolute emissions in our target year (2030) for our Scope 3 intensity target, as this will allow a very precise calculation of forecasted growth and future sales. This commercial forecast is highly confidential and commercially sensitive.",
+      "section": "Climate change",
+      "pages": [
+        92
+      ],
+      "expected": false,
+      "reason": "Trap: accounting-policy caveat about non-disclosure of a commercial forecast; not a principal risk."
+    },
+    {
+      "id": "n08",
+      "title": "Allocation of resources for GHG reduction actions",
+      "description": "Our ability to implement GHG reduction actions depends on the allocation of resources. In 2025, we allocated EUR 0.3m in CAPEX and EUR 32.4m in OPEX to support the implementation of the actions. In 2026, we expect to allocate EUR 1.2m in CAPEX and EUR 32.2m in OPEX to support implementation of the transition plan.",
+      "section": "Climate change",
+      "pages": [
+        87
+      ],
+      "expected": false,
+      "reason": "Trap: resource-allocation disclosure in the decarbonisation actions section; not a labelled principal risk."
     }
   ]
 }

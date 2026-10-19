@@ -17,7 +17,7 @@ correct. Context for what is in scope lives in [PLAN.md](PLAN.md) and
 
 - **Cost and latency in the report.** Add observability and record tokens, cost, and per-call latency
   from each live run and display them in the report.
-- **Larger golden set.** Create a more representative golden set based on mulitple reports.
+- **Larger golden set.** Create a more representative golden set based on multiple reports.
 
 ## Operations
 

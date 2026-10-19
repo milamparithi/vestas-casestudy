@@ -300,15 +300,35 @@ def test_load_golden_reads_the_committed_set():
     entries = load_golden(GOLDEN_PATH)
     valid = [entry for entry in entries if entry.expected]
     traps = [entry for entry in entries if not entry.expected]
-    assert len(entries) == 14
-    assert len(valid) == 8
-    assert len(traps) == 6
-    assert {entry.id for entry in valid} == {f"g{n:02d}" for n in range(1, 9)}
-    assert {entry.id for entry in traps} == {f"n{n:02d}" for n in range(1, 7)}
+    assert len(entries) == 23
+    assert len(valid) == 15
+    assert len(traps) == 8
+    assert {entry.id for entry in valid} == {f"g{n:02d}" for n in range(1, 16)}
+    assert {entry.id for entry in traps} == {f"n{n:02d}" for n in range(1, 9)}
     for entry in entries:
         assert entry.description, f"{entry.id} needs a description"
     for entry in valid:
         assert entry.expected_categories, f"{entry.id} needs accepted categories"
+
+
+def test_golden_covers_every_processed_risk_page():
+    """No coverage blind spot: every section/page the pipeline processes is scored."""
+    entries = load_golden(GOLDEN_PATH)
+    covered = {
+        (entry.section, page) for entry in entries for page in entry.pages
+    }
+    expected = {
+        ("Risk management", 51),
+        ("Material impacts, risks, and opportunities", 71),
+        ("Material impacts, risks, and opportunities", 73),
+        ("Material impacts, risks, and opportunities", 74),
+        ("Climate change", 85),
+        ("Climate change", 86),
+        ("Climate change", 87),
+        ("Climate change", 92),
+        ("Cyber security", 118),
+    }
+    assert expected <= covered
 
 
 def test_load_predictions_reads_description_category_and_mitigation(tmp_path):
