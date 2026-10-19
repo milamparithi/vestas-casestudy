@@ -1,0 +1,24 @@
+# Environment
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.venv/
+.pytest_cache/
+
+# Outputs
+output/
+
+# Per-run artifacts (predictions + reports; regenerated on demand)
+eval/runs/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Case_GenAIandNLPEngineer.pdf
+AGENTS.md

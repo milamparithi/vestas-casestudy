@@ -1,0 +1,13 @@
+.git
+.env
+.venv
+__pycache__
+*.egg-info
+build
+dist
+tests
+eval
+output
+*.pdf
+.idea
+.vscode

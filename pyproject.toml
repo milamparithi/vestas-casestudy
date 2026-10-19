@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "risk-pipeline"
+version = "0.1.0"
+description = "Extract structured principal risks from annual report PDFs"
+requires-python = ">=3.10"
+dependencies = [
+    "pypdf>=5.0",
+    "fonttools>=4.50",
+    "pdfplumber>=0.11",
+    "pydantic>=2.7",
+    "litellm>=1.40",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+risk-pipeline = "risk_pipeline.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"risk_pipeline.evaluation" = ["golden.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

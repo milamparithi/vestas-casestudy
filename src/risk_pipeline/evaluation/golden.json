@@ -1,0 +1,161 @@
+{
+  "metadata": {
+    "purpose": "Human-adjudicated golden set for the scoped sections of the Vestas 2025 annual report.",
+    "design": "Page-complete: every covered (section, page) lists all of its valid risks (expected=true) and all of its traps (expected=false). Predictions on locations not covered here are ignored by the evaluator, so a sampled golden set does not distort precision.",
+    "expected_true_meaning": "A principal risk that must be extracted.",
+    "expected_false_meaning": "A disclosure that must be ignored (impact, opportunity, immaterial row, narrative, caveat, footnote, or restatement).",
+    "description": "The report's own wording for the disclosure. The matcher compares a prediction's description to this by token-set overlap, because the extractor paraphrases and its titles vary run to run.",
+    "title": "A short human-readable label only; not used for matching.",
+    "expected_categories": "accepted category labels for a valid entry (casefold substring match); first is canonical.",
+    "expected_mitigation_keywords": "key terms a correct mitigation must contain (casefold substring, any one suffices); null when the report states no mitigation, so any mitigation is a hallucination.",
+    "covered_locations": [
+      "Risk management p.50-51",
+      "Material impacts, risks, and opportunities p.74",
+      "Climate change p.86"
+    ]
+  },
+  "golden": [
+    {
+      "id": "g01",
+      "title": "Geopolitics and regulatory framework",
+      "description": "In 2025, Vestas continued to navigate significant challenges arising from shifting geopolitical tensions across the world. Conflicts in Ukraine and the Middle East continued to disrupt regional stability, affecting global supply chains and business operations. Trade tensions between major economies have intensified, leading to tariffs, sanctions, export controls, and targeted restrictions on critical materials which complicate global operations. Governments in the EU, China, and the USA introduced assertive industrial policies aimed at securing domestic manufacturing and energy independence. These shifts are reshaping the regulatory landscape, altering market incentives, and intensifying competition in the clean-tech sector.",
+      "section": "Risk management",
+      "pages": [51],
+      "expected": true,
+      "expected_categories": ["regulatory", "geopolitical"],
+      "expected_mitigation_keywords": ["footprint", "advocacy", "hedg", "indexation"],
+      "reason": "One of the three Main risks columns (p.51); 'How we manage it' states monitoring, a regionalised footprint, advocacy, and indexation/hedging."
+    },
+    {
+      "id": "g02",
+      "title": "Project execution",
+      "description": "Project execution at Vestas involves delivering complex onshore and offshore projects within specified parameters relating to quality, cost, and timeline. As the scale and complexity of offshore projects grow, so does the need for precise internal coordination. Execution is affected by delays in production capacity ramp-up, quality control issues during scaling, and supply chain disruptions. The lack of industry-wide standardisation and insufficient logistical infrastructure further complicate timely delivery.",
+      "section": "Risk management",
+      "pages": [51],
+      "expected": true,
+      "expected_categories": ["operational"],
+      "expected_mitigation_keywords": ["governance", "planning", "capacity", "supplier"],
+      "reason": "One of the three Main risks columns (p.51); mitigation is project governance, planning, scalable capacity, and supplier coordination."
+    },
+    {
+      "id": "g03",
+      "title": "Cyber attacks",
+      "description": "Vestas' digital and other critical assets are exposed to cyber attacks. A cyber attack may have dual implications for both Vestas as a company and for the societies that our energy solutions serve. Electricity producers rely on Vestas' energy solutions for reliable and secure sustainable energy production, making these solutions critical infrastructure. Cyber-threat actors constantly evolve their methods and techniques to attack Vestas' energy solutions, for the purpose of extortion or to destabilise energy generation.",
+      "section": "Risk management",
+      "pages": [51],
+      "expected": true,
+      "expected_categories": ["cyber"],
+      "expected_mitigation_keywords": ["cyber security services", "standards", "cyber risks"],
+      "reason": "One of the three Main risks columns (p.51); mitigation is continuously addressing cyber risks and developing cyber security services."
+    },
+    {
+      "id": "g04",
+      "title": "Insufficient market conditions",
+      "description": "Inadequate grid expansion, ineffective auction design and permit delays could increase costs, hinder investments, and reduce the viability of wind deployment.",
+      "section": "Material impacts, risks, and opportunities",
+      "pages": [74],
+      "expected": true,
+      "expected_categories": ["market"],
+      "expected_mitigation_keywords": null,
+      "reason": "Right-column financial risk on p.74 (Political engagement row). The IRO table states no mitigation, so null is correct."
+    },
+    {
+      "id": "g05",
+      "title": "Cyber security risks",
+      "description": "Cyber attacks might disrupt business operations, expose intellectual property, or cause legal liability.",
+      "section": "Material impacts, risks, and opportunities",
+      "pages": [74],
+      "expected": true,
+      "expected_categories": ["cyber"],
+      "expected_mitigation_keywords": null,
+      "reason": "Right-column financial risk on p.74 (Cyber security row). No mitigation is stated in the table."
+    },
+    {
+      "id": "g06",
+      "title": "Risk of corruption and bribery",
+      "description": "Vestas' global presence presents an increased risk of exposure to corruption and bribery.",
+      "section": "Material impacts, risks, and opportunities",
+      "pages": [74],
+      "expected": true,
+      "expected_categories": ["regulatory", "corruption", "bribery"],
+      "expected_mitigation_keywords": null,
+      "reason": "Right-column financial risk on p.74 (Corruption and bribery row; impacts scored immaterial). No mitigation stated."
+    },
+    {
+      "id": "g07",
+      "title": "Climate transition investment and technology maturity risk",
+      "description": "Aligning our own operations with ambitious climate targets and mitigating financial impacts from carbon taxes and tariffs requires significant investments, and some necessary solutions are still immature from a technical or commercial perspective.",
+      "section": "Climate change",
+      "pages": [86],
+      "expected": true,
+      "expected_categories": ["climate"],
+      "expected_mitigation_keywords": ["investments", "mitigating actions", "strategic priorities"],
+      "reason": "Resilience analysis (p.86): significant, immature investments stated as a risk; mitigation is the strategic priorities and investments in place."
+    },
+    {
+      "id": "g08",
+      "title": "Dependence on political action",
+      "description": "Our business outlook also depends on political action; without supportive policies, our industry may struggle to meet global climate targets.",
+      "section": "Climate change",
+      "pages": [86],
+      "expected": true,
+      "expected_categories": ["regulatory", "political"],
+      "expected_mitigation_keywords": ["investments", "mitigating actions", "strategic priorities"],
+      "reason": "Resilience analysis (p.86): business outlook depends on political action; shares the same stated mitigation sentence as g07."
+    },
+    {
+      "id": "n01",
+      "title": "Operational, Commercial, Macroeconomic, and Regulatory Challenges",
+      "description": "Operating across diverse markets and a rapidly evolving industry landscape, Vestas is exposed to a wide array of risks that reflect the complexity and global nature of our business. These risks include operational, commercial, macroeconomic, and regulatory challenges.",
+      "section": "Risk management",
+      "pages": [50],
+      "expected": false,
+      "reason": "Trap: ERM overview sentence that lists risk categories; not a discrete risk."
+    },
+    {
+      "id": "n02",
+      "title": "Climate Change and Responsible Business Conduct Risks",
+      "description": "Vestas' most significant risks, including material sustainability topics such as climate change mitigation and responsible business conduct, are reviewed every six months by the Executive Management Team, the Board of Directors, and the Audit Committee.",
+      "section": "Risk management",
+      "pages": [50],
+      "expected": false,
+      "reason": "Trap: ERM review-cadence narrative (how risk is managed), not a risk."
+    },
+    {
+      "id": "n03",
+      "title": "Land-use restrictions during construction",
+      "description": "Land-use restrictions during wind farm construction leading to a temporary negative impact in the form of physical and economic displacement (e.g income losses) of local communities.",
+      "section": "Material impacts, risks, and opportunities",
+      "pages": [74],
+      "expected": false,
+      "reason": "Trap: left-column impact; the paired risks/opportunities are scored immaterial N/A."
+    },
+    {
+      "id": "n04",
+      "title": "Impacts on indigenous peoples' rights",
+      "description": "Failure to respect indigenous peoples right to own, control and use their lands in development, construction and operation of wind farms is a negative impact.",
+      "section": "Material impacts, risks, and opportunities",
+      "pages": [74],
+      "expected": false,
+      "reason": "Trap: left-column impact with no paired financial risk."
+    },
+    {
+      "id": "n05",
+      "title": "Uncertainties in Climate Scenario Analysis",
+      "description": "We recognise that analysis of the future is based on significant uncertainties and assumptions due to e.g., market developments and evolving climate patterns.",
+      "section": "Climate change",
+      "pages": [86],
+      "expected": false,
+      "reason": "Trap: caveat about the analysis method, not a risk to the business."
+    },
+    {
+      "id": "n06",
+      "title": "Physical climate risks (water stress and extreme rainfall)",
+      "description": "While physical risks like water stress and extreme rainfall may impact operations across our value chain, the impact is not expected to materially delay or damage assets and therefore is not financially material.",
+      "section": "Climate change",
+      "pages": [86],
+      "expected": false,
+      "reason": "Trap: explicitly stated as not financially material."
+    }
+  ]
+}
