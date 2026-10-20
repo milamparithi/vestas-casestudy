@@ -28,8 +28,13 @@ for example it is labelled a principal/main/key risk, listed in a risk register,
 or otherwise described as a risk the company faces.
 
 Do not include:
-- impacts: effects on people or the environment;
+- impacts: effects on people, society, customers, or the environment;
 - opportunities or other positive items;
+- an item the page itself types as an impact rather than a risk: many disclosures
+  state their type, e.g. "Type of impact: Potential, negative impact" versus
+  "Type of impact: Risk". When those labels are present, treat the item as a risk
+  only when the page types it as a risk; an item typed as an impact is out of
+  scope even if it describes adverse consequences;
 - a topic the company itself assesses as immaterial, not material, or not
   applicable - and apply this item by item: if one part of a topic is scored
   immaterial while another part is a material risk, keep the risk;
