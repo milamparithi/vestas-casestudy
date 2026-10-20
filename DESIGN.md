@@ -9,7 +9,7 @@ This app loads the PDF, extracts specific sections and the corresponding pages a
 
 The LLM never sees the whole report. Only selected pages with risk details are sent. This prevents the LLM from hallucination. Each retrieved risk is attributed to a correct page and section.
 
-A golden data set is available as a baseline with some true positives and false positives. This can be run whenever a model,prompt or some other part of the pipeline changes, to catch any regressions.
+A golden data set is available as a baseline with true positives and some false positives. This can be run whenever a model,prompt or some other part of the pipeline changes, to catch any regressions.
 
 ## Architecture
 
@@ -55,32 +55,32 @@ share one run id; the same section is appended to the shared `eval/REPORT.md` lo
 
 ## Key decisions/trade-offs
 
-**Report specific pipeline logic** Section details are hardcoded for now as per the requirement. Ideally
+**Report specific pipeline logic** - Section details are hardcoded for now as per the requirement. Ideally
 the pipeline should identify the relevant sections automatically and retrieve those section details. More generic logic
 needed to parse wide variety of document formats and document structure. For example, sections might have different hierarchy. Tables
 might have different format etc. Except the hard coded sections the rest of the pipeline is designed to handle any valid pdf report.
 
-**One LLM call per page.** Instead of sending the entire section, one LLM call is made for each page. This keeps prompts focused, makes associating risk details with right page and section accurate. The cost is one call per page, which is cheap for the ~17 pages in scope. This assumes risks will not span more than one page. 
+**One LLM call per page** - Instead of sending the entire section, one LLM call is made for each page. This keeps prompts focused, makes associating risk details with right page and section accurate. The cost is one call per page, which is cheap for the ~17 pages in scope. This assumes risks will not span more than one page. 
 
-**Printed page numbers from the PDF.** `pipeline/ingest._page_number` prefers the PDF's
+**Printed page numbers from the PDF** - `pipeline/ingest._page_number` prefers the PDF's
 standard page label when it is numeric, else falls back to `pdf_index + 1`.
 `pipeline/retrieve._select_pages` matches on printed numbers first and falls back to index
 arithmetic, so output pages map to what a reader sees.
 
-**pypdf first, pdfplumber only for sparse pages.** `pipeline/ingest` uses pypdf (fast, good
+**pypdf first, pdfplumber only for sparse pages** - `pipeline/ingest` uses pypdf (fast, good
 for prose). Any page under `SPARSE_PAGE_THRESHOLD = 100` characters is re-extracted
 with pdfplumber, which recovers text pypdf misses.
 
-**Free-form categories.** The prompt gives example labels but no fixed set of values. 
+**Free-form categories** - The prompt gives example labels but no fixed set of values. 
 Borderline risks legitimately fit more than one category, so different models come up with different category. If all
 possible categories are known, we can constrain the model to pick a suitable category from the given set of values for 
 uniformity.
 
-**Provider-agnostic via litellm.** Any `provider/model` string works by swapping
+**Provider-agnostic via litellm** - Any `provider/model` string works by swapping
 `LLM_MODEL`. No provider SDK is pinned in the code. Requests use
 `response_format={"type": "json_object"}` and `temperature=0`.
 
-**Report specific golden set and evaluation** The golden set is currently based only on the Vestas report. Eval assumes that the generated output is for the Vestas Report. When we make the pipeline generic, eval logic needs to be updated as well. True positives and false positives for the golden dataset are identified by the LLM. In a production system, the golden dataset should be curated by a subject matter expert(SME). For simplicity we use classic NLP for evaluation here. Using LLM-as-a-judge we can improve the evaluation while differnent models are used for extraction.
+**Report specific golden set and evaluation** - The golden set is currently based only on the Vestas report. Eval assumes that the generated output is for the Vestas Report. When we make the pipeline generic, eval logic needs to be updated as well. True positives and false positives for the golden dataset are identified by the LLM. In a production system, the golden dataset should be curated by a subject matter expert(SME). For simplicity we use classic NLP for evaluation here. Using LLM-as-a-judge we can improve the evaluation while differnent models are used for extraction.
 
 ## Robustness
 
