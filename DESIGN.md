@@ -80,7 +80,7 @@ uniformity.
 `LLM_MODEL`. No provider SDK is pinned in the code. Requests use
 `response_format={"type": "json_object"}` and `temperature=0`.
 
-**Report specific golden set and evaluation** - The golden set is currently based only on the Vestas report. Eval assumes that the generated output is for the Vestas Report. When we make the pipeline generic, eval logic needs to be updated as well. True positives and false positives for the golden dataset are identified by the LLM. In a production system, the golden dataset should be curated by a subject matter expert(SME). For simplicity we use classic NLP for evaluation here. Using LLM-as-a-judge we can improve the evaluation while differnent models are used for extraction.
+**Report specific golden set and evaluation** - The golden set is currently based only on the Vestas report. Eval assumes that the generated output is for the Vestas Report. When we make the pipeline generic, eval logic needs to be updated as well. True positives and false positives for the golden dataset are identified by the LLM. In a production system, the golden dataset should be curated by a subject matter expert(SME). For simplicity we use classic NLP for evaluation here. Using LLM-as-a-judge will help improve the evaluation when differnent models are used for extraction (better semantic matching).
 
 ## Robustness
 
