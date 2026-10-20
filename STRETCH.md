@@ -1,4 +1,4 @@
-# STRETCH — Extensions and Hardening
+# STRETCH - Extensions and Hardening
 
 Ideas deliberately left out of the first slice, so the core stays small and
 correct. Context for what is in scope lives in [PLAN.md](PLAN.md) and
