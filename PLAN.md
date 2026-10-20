@@ -16,16 +16,16 @@ Two layers:
 - **Broad product surface** - an interactive risk-search UI: users log in, browse
   available reports, query risks (e.g. "renewable-energy companies listing cyber security
   as a principal risk"), and see category shifts year-over-year. Not built here.
-- **This slice** - the batch ingestion step behind that app: a **PDF-in / JSON-out
+- **This slice** - the batch report ingestion step behind that app. A **PDF-in / JSON-out
   pipeline** (Python entry point / CLI, later a queued worker or batch API) that runs
   asynchronously when an admin uploads a report. 
 
 ## What are we optimizing for in this first slice?
 
 1. **Correctness first** - No hallucination. Every extracted risk must be faithful to the text and
-   verifiably located (page/section). We achieve this making a LLM call for each page.
+   verifiably located (page/section). We achieve this by making a LLM call for each page.
 2. **Coverage second** - We try to extract all principal risks without missing any. We have also tweaked the prompt to avoid any false positives.
-3. **Cost is a constraint, not an optimization target** - Though not optimizing for cost specifically now, it's still cheap to run this pipeline since we don't need SOTA models for this task. Also we extract specific pages with risk details first and send only those pages to the LLM. The LLM never sees the entire report.
+3. **Cost is a constraint, not an optimization target** - Though not optimizing for cost specifically for now, it's still cheap to run this pipeline since we don't need SOTA models for this task. Also we extract specific pages with risk details first and send only those pages to the LLM. The LLM never sees the entire report.
 4. **Throughput explicitly deferred** - Not considering throughput or latency at this point. Though in the actual app, asynchronous processing absorbs scale and ~200 reports/quarter does not stress a single pipeline.
 
 ## What assumptions are we making?
