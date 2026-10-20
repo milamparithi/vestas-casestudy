@@ -73,14 +73,14 @@ with pdfplumber, which recovers text pypdf misses.
 
 **Free-form categories.** The prompt gives example labels but no fixed set of values. 
 Borderline risks legitimately fit more than one category, so different models come up with different category. If all
-possible categories are known, we can constrain the model pick a suitable category from the given set of values for 
+possible categories are known, we can constrain the model to pick a suitable category from the given set of values for 
 uniformity.
 
 **Provider-agnostic via litellm.** Any `provider/model` string works by swapping
 `LLM_MODEL`. No provider SDK is pinned in the code. Requests use
 `response_format={"type": "json_object"}` and `temperature=0`.
 
-**Report specific golden set and evaluation** The golden set is currently based only on the Vestas report. Eval assumes that the generated output is for the Vestas Report. When we make the pipeline generic, eval logic needs to be updated as well. Also true positives and false positives for the golden dataset are identified by the LLM. In a production system, the golden dataset should be curated by a subject matter expert.
+**Report specific golden set and evaluation** The golden set is currently based only on the Vestas report. Eval assumes that the generated output is for the Vestas Report. When we make the pipeline generic, eval logic needs to be updated as well. True positives and false positives for the golden dataset are identified by the LLM. In a production system, the golden dataset should be curated by a subject matter expert(SME). For simplicity we use classic NLP for evaluation here. Using LLM-as-a-judge we can improve the evaluation while differnent models are used for extraction.
 
 ## Robustness
 
