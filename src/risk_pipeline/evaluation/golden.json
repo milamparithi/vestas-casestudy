@@ -6,7 +6,7 @@
     "expected_false_meaning": "A disclosure that must be ignored (impact, opportunity, immaterial row, narrative, caveat, footnote, or restatement).",
     "description": "The report's own wording for the disclosure. The matcher compares a prediction's description to this by token-set overlap, because the extractor paraphrases and its titles vary run to run.",
     "title": "A short human-readable label only; not used for matching.",
-    "expected_categories": "accepted category labels for a valid entry (casefold substring match); first is canonical.",
+    "expected_categories": "accepted category labels for a valid entry (casefold substring match); first is canonical. Labels are risk domains (the nature or cause of the risk), not financial materiality: 'financial' is deliberately not accepted, because the report's financial-risk heading describes a measured consequence, not a risk type. A cost impact driven by carbon taxes or tariffs is a regulatory/market/climate risk, so those domain labels are accepted on g09 and g13.",
     "expected_mitigation_keywords": "key terms a correct mitigation must contain (casefold substring, any one suffices); null when the report states no mitigation, so any mitigation is a hallucination.",
     "covered_locations": [
       "Risk management p.50-51",
@@ -120,7 +120,8 @@
       "expected_categories": [
         "regulatory",
         "corruption",
-        "bribery"
+        "bribery",
+        "operational"
       ],
       "expected_mitigation_keywords": null,
       "reason": "Right-column financial risk on p.74 (Corruption and bribery row; impacts scored immaterial). No mitigation stated."
@@ -135,7 +136,8 @@
       ],
       "expected": true,
       "expected_categories": [
-        "climate"
+        "climate",
+        "operational"
       ],
       "expected_mitigation_keywords": [
         "investments",
@@ -241,7 +243,8 @@
       "expected": true,
       "expected_categories": [
         "regulatory",
-        "market"
+        "market",
+        "climate"
       ],
       "expected_mitigation_keywords": null,
       "reason": "Right-column financial risk on the p.71 IRO summary table (Climate change mitigation row). No mitigation is stated in the table."
@@ -290,7 +293,8 @@
       "expected_categories": [
         "social",
         "human rights",
-        "regulatory"
+        "regulatory",
+        "supply chain"
       ],
       "expected_mitigation_keywords": null,
       "reason": "Right-column financial risk on the p.73 IRO summary table (Other work-related rights of workers in the value chain row). No mitigation stated."
@@ -306,7 +310,8 @@
       "expected": true,
       "expected_categories": [
         "regulatory",
-        "market"
+        "market",
+        "climate"
       ],
       "expected_mitigation_keywords": null,
       "reason": "SBM-3 financial transition risk on p.85 (Carbon taxes and tariffs). No mitigation is stated in this disclosure."

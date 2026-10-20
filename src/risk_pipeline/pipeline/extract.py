@@ -68,9 +68,17 @@ Return a JSON object of exactly this shape:
 Field guidance:
 - title: a short, specific name for the risk.
 - description: 2-3 sentences describing the risk.
-- category: the type of risk you infer from the text - for example financial,
-  operational, regulatory, market, climate, cyber, or supply chain. Use another
-  concise label if none of these fit.
+- category: the type of risk by its domain - the nature or cause of the risk -
+  not its financial consequence. Label the risk by what kind of risk it is, even
+  when the page presents it under a financial heading or stresses its cost
+  impact: a cost increase that stems from carbon taxes or tariffs is regulatory or
+  market, not financial. When an item fits several domains, pick the most specific
+  one that names the risk's cause: corruption, bribery, or labour-rights/
+  human-rights exposure is regulatory, social, or supply chain rather than generic
+  operational; an investment or technology-maturity risk tied to the climate
+  transition is climate. Choose from operational, regulatory, market, climate,
+  cyber, supply chain, health and safety, social, or geopolitical; use another
+  concise domain label if none fit.
 - mitigation: the stated mitigation or management action, or null if none is given.
 
 If the page discloses no principal risks, return {"risks": []}.""".strip()
