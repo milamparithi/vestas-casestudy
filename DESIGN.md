@@ -1,4 +1,4 @@
-# DESIGN — Risk Extraction Pipeline
+# DESIGN - Risk Extraction Pipeline
 
 How the pipeline is put together and *why*. For product context and scope, see
 [PLAN.md](PLAN.md); for the eval details, see [eval/README.md](eval/README.md).
@@ -32,10 +32,10 @@ PDF ──▶ ingest ──▶ [Page] ──▶ retrieve ──▶ [FetchedSecti
 
 ## Data contracts
 
-- **`Page`** — `pdf_index` (0-based), `page_number` (printed), `text`.
-- **`FetchedSection`** — `name`, `page_start`, `page_end`, `text`, plus the
+- **`Page`** - `pdf_index` (0-based), `page_number` (printed), `text`.
+- **`FetchedSection`** - `name`, `page_start`, `page_end`, `text`, plus the
   underlying `pages` (excluded from serialisation).
-- **`Risk`** — `title`, `description`, `category`, `mitigation`, `section`, `page`.
+- **`Risk`** - `title`, `description`, `category`, `mitigation`, `section`, `page`.
   This is what is written out, as a **bare JSON list**.
 
 The LLM is asked to return `{"risks": [{"title", "description", "category",
@@ -84,14 +84,14 @@ uniformity.
 
 ## Robustness
 
-- **Per-page isolation** — `pipeline/extract.extract()` wraps each page in try/except; a failing page
+- **Per-page isolation** - `pipeline/extract.extract()` wraps each page in try/except; a failing page
   is logged and skipped rather than aborting the run.
-- **JSON retry** — `complete_json` retries once on non-JSON output, tolerating code
+- **JSON retry** - `complete_json` retries once on non-JSON output, tolerating code
   fences.
-- **Rate-limit backoff** — a throttled call is retried (4 attempts, linear backoff)
+- **Rate-limit backoff** - a throttled call is retried (4 attempts, linear backoff)
   rather than raised, because letting it fail would silently drop a page and distort
   recall.
-- **Polite delay** — `request_delay` pauses before each call to stay under provider
+- **Polite delay** - `request_delay` pauses before each call to stay under provider
   limits.
 
 ## Configuration
@@ -125,5 +125,5 @@ in [eval/README.md](eval/README.md).
 ## Testing
 
 `pytest` covers ingestion, retrieval, extraction (with a monkeypatched LLM),
-JSON/rate-limit handling, and the evaluator. The LLM is stubbed in tests — no
+JSON/rate-limit handling, and the evaluator. The LLM is stubbed in tests - no
 network calls.
